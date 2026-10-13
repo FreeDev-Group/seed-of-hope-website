@@ -1,0 +1,85 @@
+# Local development stack: WordPress + MariaDB + WP-CLI (+ Composer for linting).
+# Start everything with `npm run setup`. Only our theme, plugin and mu-plugins are mounted from the repo;
+# WordPress core lives in the `wp` volume and is never versioned.
+name: seed-of-hope
+
+x-db-env: &db-env
+  WORDPRESS_DB_HOST: db
+  WORDPRESS_DB_NAME: wordpress
+  WORDPRESS_DB_USER: wordpress
+  WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-wordpress}
+
+x-wp-volumes: &wp-volumes
+  - wp:/var/www/html
+  - ./wp-content/themes/seed-of-hope:/var/www/html/wp-content/themes/seed-of-hope
+  - ./wp-content/plugins/seed-of-hope-core:/var/www/html/wp-content/plugins/seed-of-hope-core
+  - ./wp-content/mu-plugins:/var/www/html/wp-content/mu-plugins
+
+services:
+  db:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${DB_PASSWORD:-wordpress}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 3s
+      timeout: 5s
+      retries: 40
+
+  wordpress:
+    image: wordpress:7.1-php8.3-apache
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${WP_PORT:-8888}:80"
+    environment:
+      <<: *db-env
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_ENVIRONMENT_TYPE', 'local' );
+        define( 'DISALLOW_FILE_EDIT', true );
+    volumes: *wp-volumes
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /var/www/html/wp-config.php && curl -fs -o /dev/null http://localhost/wp-includes/images/blank.gif"]
+      interval: 3s
+      timeout: 5s
+      retries: 40
+
+  cli:
+    image: wordpress:cli-php8.3
+    profiles: ["tools"]
+    user: "33:33"
+    depends_on:
+      wordpress:
+        condition: service_healthy
+    environment:
+      <<: *db-env
+      WP_CLI_CACHE_DIR: /tmp/wp-cli-cache
+      WP_URL: ${WP_URL:-http://localhost:8888}
+      WP_ADMIN_USER: ${WP_ADMIN_USER:-admin}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD:-local-dev-password}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL:-admin@seed-of-hope.test}
+    volumes:
+      - wp:/var/www/html
+      - ./wp-content/themes/seed-of-hope:/var/www/html/wp-content/themes/seed-of-hope
+      - ./wp-content/plugins/seed-of-hope-core:/var/www/html/wp-content/plugins/seed-of-hope-core
+      - ./wp-content/mu-plugins:/var/www/html/wp-content/mu-plugins
+      - ./content:/content:ro
+      - ./scripts:/scripts:ro
+
+  composer:
+    image: composer:2
+    profiles: ["tools"]
+    working_dir: /app
+    volumes:
+      - ./:/app
+
+volumes:
+  db:
+  wp:
