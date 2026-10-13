@@ -1,0 +1,38 @@
+# Dependencies
+/node_modules/
+/vendor/
+
+# Local environment and secrets
+.env
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# WordPress core, uploads and anything not ours (we only version our theme, plugin and mu-plugins)
+/wordpress/
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/seed-of-hope/
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/seed-of-hope-core/
+!/wp-content/mu-plugins/
+/wp-content/uploads/
+
+# Test output
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/tests/.auth/
+
+# Tooling and OS files
+.phpcs-cache
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json

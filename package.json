@@ -1,0 +1,35 @@
+{
+  "name": "seed-of-hope-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WordPress block theme, core plugin and tooling for the Seed of Hope / Semence d'Espoir website.",
+  "license": "GPL-2.0-or-later",
+  "author": "Samuel BITINGINGWA (FreeDev-Group)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FreeDev-Group/seed-of-hope-website.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "setup": "docker compose up -d --wait && docker compose run --rm cli sh /scripts/setup.sh",
+    "start": "docker compose up -d --wait",
+    "stop": "docker compose stop",
+    "reset": "docker compose --profile tools down -v",
+    "wp": "docker compose run --rm cli wp",
+    "test": "playwright test --project=desktop --project=mobile --project=editor",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "screenshots": "playwright test --project=screenshots",
+    "lint": "npm run lint:contrast && npm run lint:php",
+    "lint:contrast": "node scripts/check-contrast.mjs",
+    "lint:php": "docker compose run --rm composer sh -c \"composer install --no-interaction --no-progress --quiet && composer lint\"",
+    "lint:php:fix": "docker compose run --rm composer sh -c \"composer install --no-interaction --no-progress --quiet && composer fix\"",
+    "i18n": "docker compose run --rm cli sh /scripts/i18n.sh"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.64.0"
+  }
+}
