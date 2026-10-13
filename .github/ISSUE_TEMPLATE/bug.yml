@@ -1,0 +1,63 @@
+# Template authors: Samuel BITINGINGWA (@Samuel11s), with Claude AI as contributor.
+name: Bug report
+description: Something is broken, unreadable or inaccessible.
+title: "[Bug] "
+labels: ["type:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Accessibility problems are bugs, not "nice to have".
+        _Template maintained by @Samuel11s · contributor: Claude AI_
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      placeholder: http://localhost:8888/contact/ or https://staging.example.org/contact/
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Local (Docker)
+        - Staging
+        - Production
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual result
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser
+      placeholder: Android phone, Chrome 140 / Windows laptop, Firefox
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "Blocker: the site or a key page is unusable"
+        - "Major: a feature or an accessibility requirement fails"
+        - "Minor: visual or wording problem"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots, console errors or Playwright report

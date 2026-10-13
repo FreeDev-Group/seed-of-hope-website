@@ -1,0 +1,57 @@
+# Template authors: Samuel BITINGINGWA (@Samuel11s), with Claude AI as contributor.
+name: Content needed from Seed of Hope
+description: Track information, text or media that the client must provide or validate.
+title: "[Content] "
+labels: ["type:content", "blocked:client"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We never invent addresses, phone numbers, programmes, figures, testimonials or partners.
+        Until the client answers, the site shows "[À confirmer par Seed of Hope]".
+        _Template maintained by @Samuel11s · contributor: Claude AI_
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Identity (official name, logo, link with LePhare, history)
+        - Mission, vision, values
+        - Programmes (names, audience, schedule, location, conditions)
+        - Team (names, roles, photos allowed)
+        - Activities and news
+        - Media (photos, videos, testimonials with consent)
+        - Contact details and social media
+        - Site management (validators, administrators)
+        - Hosting and domain name
+    validations:
+      required: true
+  - type: textarea
+    id: needed
+    attributes:
+      label: What exactly do we need?
+      description: Be precise, so the client can answer in one message.
+    validations:
+      required: true
+  - type: input
+    id: pages
+    attributes:
+      label: Pages affected
+      placeholder: Accueil, Contact, footer…
+  - type: input
+    id: owner
+    attributes:
+      label: Person to ask (Seed of Hope side)
+      placeholder: Content referent, once named
+  - type: input
+    id: due
+    attributes:
+      label: Needed by
+      placeholder: "2026-11-05 (M2 build)"
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent and privacy
+      options:
+        - label: Photos or testimonials of identifiable people come with written consent
+        - label: No sensitive personal data about learners will be published

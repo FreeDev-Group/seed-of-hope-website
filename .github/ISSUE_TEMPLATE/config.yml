@@ -1,0 +1,6 @@
+# Template authors: Samuel BITINGINGWA (@Samuel11s), with Claude AI as contributor.
+blank_issues_enabled: false
+contact_links:
+  - name: Contributing guide
+    url: https://github.com/FreeDev-Group/seed-of-hope-website/blob/main/CONTRIBUTING.md
+    about: Workflow, branch and commit conventions — read this before opening an issue.

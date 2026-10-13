@@ -1,0 +1,7 @@
+# Every change is reviewed by the project lead.
+# Docs: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+*                     @Samuel11s
+
+# Deployment and CI touch production: always the project lead.
+/.github/workflows/   @Samuel11s
+/scripts/             @Samuel11s

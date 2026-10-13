@@ -1,0 +1,55 @@
+# Template authors: Samuel BITINGINGWA (@Samuel11s), with Claude AI as contributor.
+name: Task
+description: A unit of development work (page, pattern, feature, tooling).
+title: "[Task] "
+labels: ["type:task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One issue = one branch = one pull request. Keep the scope small enough to review in under 30 minutes.
+        _Template maintained by @Samuel11s · contributor: Claude AI_
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should exist or work when this is done, and for whom (learners, families, volunteers, partners, editors)?
+      placeholder: As a visitor on a phone, I can…
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Checkable statements. The reviewer verifies each one.
+      value: |
+        - [ ]
+        - [ ] Works on mobile (Pixel 7) and desktop (1280px)
+        - [ ] `npm test` and `npm run lint` pass locally
+        - [ ] No invented information: anything unconfirmed uses "[À confirmer par Seed of Hope]"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Theme (templates, patterns, theme.json)
+        - Plugin (seed-of-hope-core)
+        - Content / demo pages
+        - Tests / CI
+        - Hosting / deployment
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Technical notes
+      description: Files involved, links to WordPress docs, open questions.
+  - type: checkboxes
+    id: blocked
+    attributes:
+      label: Dependencies
+      options:
+        - label: This task waits for content or a decision from Seed of Hope (add the `blocked:client` label)
