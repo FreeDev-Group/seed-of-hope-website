@@ -1,0 +1,670 @@
+# Copyright (C) 2026 FreeDev-Group
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Seed of Hope 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/FreeDev-Group/seed-of-hope-website/issues\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-13T13:48:06+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: seed-of-hope\n"
+
+#. Theme Name of the theme
+#: style.css
+#: functions.php:46
+msgid "Seed of Hope"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/FreeDev-Group/seed-of-hope-website"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "Accessible block theme for Seed of Hope / Semence d'Espoir, a LePhare ministry offering adult literacy and vocational training. Fully editable in the Site Editor."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "FreeDev-Group"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://github.com/FreeDev-Group"
+msgstr ""
+
+#: functions.php:47
+msgid "Ready-made sections for the Seed of Hope website."
+msgstr ""
+
+#: functions.php:96
+msgid "[To be confirmed by Seed of Hope]"
+msgstr ""
+
+#: patterns/404.php
+msgctxt "Pattern title"
+msgid "Page not found"
+msgstr ""
+
+#: patterns/404.php
+msgctxt "Pattern description"
+msgid "Friendly message, search form and way back for the 404 template."
+msgstr ""
+
+#: patterns/404.php:13
+msgid "Page not found"
+msgstr ""
+
+#: patterns/404.php:17
+msgid "This page does not exist or has moved. You can search the site or go back to the home page."
+msgstr ""
+
+#: patterns/404.php:20
+#: patterns/search-header.php:14
+msgctxt "search form label"
+msgid "Search"
+msgstr ""
+
+#: patterns/404.php:20
+#: patterns/search-header.php:14
+msgctxt "search button text"
+msgid "Search"
+msgstr ""
+
+#: patterns/404.php:25
+msgid "Back to the home page"
+msgstr ""
+
+#: patterns/call-to-action.php
+msgctxt "Pattern title"
+msgid "Call to action"
+msgstr ""
+
+#: patterns/call-to-action.php
+msgctxt "Pattern description"
+msgid "Invitation to contact the team or to support the ministry."
+msgstr ""
+
+#: patterns/call-to-action.php:16
+msgid "Would you like to learn, volunteer or work with us?"
+msgstr ""
+
+#: patterns/call-to-action.php:20
+msgid "Contact the Seed of Hope team with your questions. Everyone is welcome."
+msgstr ""
+
+#: patterns/call-to-action.php:26
+#: patterns/hero.php:42
+msgid "Contact us"
+msgstr ""
+
+#: patterns/call-to-action.php:30
+#: patterns/footer.php:65
+msgid "Support the ministry"
+msgstr ""
+
+#: patterns/contact.php
+msgctxt "Pattern title"
+msgid "Contact details"
+msgstr ""
+
+#: patterns/contact.php
+msgctxt "Pattern description"
+msgid "Official contact details. Publish only details confirmed by Seed of Hope."
+msgstr ""
+
+#: patterns/contact.php:13
+msgid "Address"
+msgstr ""
+
+#: patterns/contact.php:14
+msgid "Phone"
+msgstr ""
+
+#: patterns/contact.php:15
+msgid "Email"
+msgstr ""
+
+#: patterns/contact.php:16
+msgid "Opening hours"
+msgstr ""
+
+#: patterns/contact.php:22
+msgid "How to reach us"
+msgstr ""
+
+#: patterns/contact.php:26
+msgid "The official contact details will be published once they are confirmed by Seed of Hope."
+msgstr ""
+
+#: patterns/contact.php:48
+msgid "Social media:"
+msgstr ""
+
+#: patterns/faq.php
+msgctxt "Pattern title"
+msgid "Frequently asked questions"
+msgstr ""
+
+#: patterns/faq.php
+msgctxt "Pattern description"
+msgid "Accessible questions and answers that open with a click or the keyboard, no JavaScript needed."
+msgstr ""
+
+#: patterns/faq.php:13
+msgid "Who can take part in the programmes?"
+msgstr ""
+
+#: patterns/faq.php:14
+msgid "Do I need to know how to read to join?"
+msgstr ""
+
+#: patterns/faq.php:15
+msgid "Is there a fee?"
+msgstr ""
+
+#: patterns/faq.php:16
+msgid "How do I sign up?"
+msgstr ""
+
+#: patterns/faq.php:17
+msgid "How can I volunteer?"
+msgstr ""
+
+#: patterns/faq.php:23
+msgid "Frequently asked questions"
+msgstr ""
+
+#: patterns/footer.php
+msgctxt "Pattern title"
+msgid "Footer"
+msgstr ""
+
+#: patterns/footer.php
+msgctxt "Pattern description"
+msgid "Site identity, contact placeholders and quick links."
+msgstr ""
+
+#: patterns/footer.php:23
+msgid "Adult literacy and vocational training. A ministry of LePhare."
+msgstr ""
+
+#: patterns/footer.php:31
+#: patterns/footer.php:69
+msgid "Contact"
+msgstr ""
+
+#: patterns/footer.php:35
+msgid "Address:"
+msgstr ""
+
+#: patterns/footer.php:39
+msgid "Phone:"
+msgstr ""
+
+#: patterns/footer.php:43
+msgid "Email:"
+msgstr ""
+
+#: patterns/footer.php:51
+msgid "Quick links"
+msgstr ""
+
+#: patterns/footer.php:57
+#: patterns/program-cards.php:16
+msgid "Our programmes"
+msgstr ""
+
+#: patterns/footer.php:61
+#: patterns/latest-news.php:18
+#: patterns/news-header.php:12
+msgid "News and activities"
+msgstr ""
+
+#. translators: %s: current year.
+#: patterns/footer.php:86
+#, php-format
+msgid "© %s Seed of Hope — Semence d’Espoir"
+msgstr ""
+
+#: patterns/header.php
+msgctxt "Pattern title"
+msgid "Header"
+msgstr ""
+
+#: patterns/header.php
+msgctxt "Pattern description"
+msgid "Site identity and responsive main navigation. WordPress adds the \"Skip to content\" link before the header."
+msgstr ""
+
+#: patterns/hero.php
+msgctxt "Pattern title"
+msgid "Hero"
+msgstr ""
+
+#: patterns/hero.php
+msgctxt "Pattern description"
+msgid "Opening section of the home page with the main heading (h1) and two calls to action. Use it once, at the top of the home page."
+msgstr ""
+
+#: patterns/hero.php:20
+msgid "A ministry of LePhare"
+msgstr ""
+
+#: patterns/hero.php:24
+msgid "Seed of Hope — Semence d’Espoir"
+msgstr ""
+
+#: patterns/hero.php:28
+msgid "Adult literacy and vocational training: learning to read, to write and to build practical skills, at every stage of life."
+msgstr ""
+
+#: patterns/hero.php:32
+msgid "[Welcome message to be confirmed by Seed of Hope]"
+msgstr ""
+
+#: patterns/hero.php:38
+msgid "Discover our programmes"
+msgstr ""
+
+#: patterns/impact-figures.php
+msgctxt "Pattern title"
+msgid "Impact figures"
+msgstr ""
+
+#: patterns/impact-figures.php
+msgctxt "Pattern description"
+msgid "Three key figures. Disabled by default: enable it in Settings > Reading only once Seed of Hope has confirmed real figures."
+msgstr ""
+
+#: patterns/impact-figures.php:16
+msgid "Our impact"
+msgstr ""
+
+#: patterns/impact-figures.php:20
+msgid "[Figures to be confirmed by Seed of Hope before publication]"
+msgstr ""
+
+#: patterns/impact-figures.php:29
+msgid "[Figure]"
+msgstr ""
+
+#: patterns/impact-figures.php:33
+msgid "[What this figure measures, and for which period]"
+msgstr ""
+
+#: patterns/latest-news.php
+msgctxt "Pattern title"
+msgid "Latest news"
+msgstr ""
+
+#: patterns/latest-news.php
+msgctxt "Pattern description"
+msgid "The three most recent news posts with a link to the news page."
+msgstr ""
+
+#: patterns/latest-news.php:37
+msgid "No news has been published yet."
+msgstr ""
+
+#: patterns/latest-news.php:46
+msgid "See all news and activities"
+msgstr ""
+
+#: patterns/mission-vision-values.php
+msgctxt "Pattern title"
+msgid "Mission, vision and values"
+msgstr ""
+
+#: patterns/mission-vision-values.php
+msgctxt "Pattern description"
+msgid "Three cards presenting the mission, the vision and the values of Seed of Hope."
+msgstr ""
+
+#: patterns/mission-vision-values.php:16
+msgid "Who we are"
+msgstr ""
+
+#: patterns/mission-vision-values.php:20
+msgid "Seed of Hope (Semence d’Espoir) is a ministry of LePhare. It supports adults through literacy and vocational training."
+msgstr ""
+
+#: patterns/mission-vision-values.php:30
+msgid "Our mission"
+msgstr ""
+
+#: patterns/mission-vision-values.php:46
+msgid "Our vision"
+msgstr ""
+
+#: patterns/mission-vision-values.php:62
+msgid "Our values"
+msgstr ""
+
+#: patterns/news-header.php
+msgctxt "Pattern title"
+msgid "News page header"
+msgstr ""
+
+#: patterns/news-header.php
+msgctxt "Pattern description"
+msgid "Title and introduction of the news page (the WordPress posts page)."
+msgstr ""
+
+#: patterns/news-header.php:19
+msgid "Announcements, events, workshops and news from the ministry."
+msgstr ""
+
+#: patterns/partner-logos.php
+msgctxt "Pattern title"
+msgid "Partner logos"
+msgstr ""
+
+#: patterns/partner-logos.php
+msgctxt "Pattern description"
+msgid "Grid of partner logos. Replace each box with an Image block and use the partner's name as alternative text."
+msgstr ""
+
+#: patterns/partner-logos.php:16
+msgid "Our partners"
+msgstr ""
+
+#: patterns/partner-logos.php:20
+msgid "[Confirmed partners to be listed by Seed of Hope, with their permission to show their logo]"
+msgstr ""
+
+#: patterns/partner-logos.php:29
+msgid "[Partner logo]"
+msgstr ""
+
+#: patterns/posts-list.php
+msgctxt "Pattern title"
+msgid "Posts list"
+msgstr ""
+
+#: patterns/posts-list.php
+msgctxt "Pattern description"
+msgid "List of posts for the news page, archives and search results."
+msgstr ""
+
+#: patterns/posts-list.php:32
+msgid "Nothing has been published here yet."
+msgstr ""
+
+#: patterns/program-cards.php
+msgctxt "Pattern title"
+msgid "Programme cards"
+msgstr ""
+
+#: patterns/program-cards.php
+msgctxt "Pattern description"
+msgid "Two cards linking to the literacy and vocational training pages."
+msgstr ""
+
+#: patterns/program-cards.php:20
+msgid "Seed of Hope offers literacy and vocational training for adults."
+msgstr ""
+
+#: patterns/program-cards.php:30
+msgid "Literacy"
+msgstr ""
+
+#: patterns/program-cards.php:34
+msgid "Learn to read and write, and strengthen basic skills that are useful in daily, social and working life."
+msgstr ""
+
+#: patterns/program-cards.php:38
+msgid "[Levels, schedule and location to be confirmed by Seed of Hope]"
+msgstr ""
+
+#: patterns/program-cards.php:44
+msgid "Discover the literacy programme"
+msgstr ""
+
+#: patterns/program-cards.php:58
+msgid "Vocational training"
+msgstr ""
+
+#: patterns/program-cards.php:62
+msgid "Build practical and professional skills through training and workshops."
+msgstr ""
+
+#: patterns/program-cards.php:66
+msgid "[Training tracks and workshops to be confirmed by Seed of Hope]"
+msgstr ""
+
+#: patterns/program-cards.php:72
+msgid "Discover vocational training"
+msgstr ""
+
+#: patterns/program-sheet.php
+msgctxt "Pattern title"
+msgid "Programme sheet"
+msgstr ""
+
+#: patterns/program-sheet.php
+msgctxt "Pattern description"
+msgid "Structured programme details: name, objectives, audience, prerequisites, duration, location, conditions and contact."
+msgstr ""
+
+#: patterns/program-sheet.php:13
+msgid "Objectives"
+msgstr ""
+
+#: patterns/program-sheet.php:14
+msgid "Who is it for?"
+msgstr ""
+
+#: patterns/program-sheet.php:15
+msgid "Prerequisites"
+msgstr ""
+
+#: patterns/program-sheet.php:16
+msgid "Duration and schedule"
+msgstr ""
+
+#: patterns/program-sheet.php:17
+msgid "Location"
+msgstr ""
+
+#: patterns/program-sheet.php:18
+msgid "Conditions to take part"
+msgstr ""
+
+#: patterns/program-sheet.php:19
+msgid "Contact person"
+msgstr ""
+
+#: patterns/program-sheet.php:25
+msgid "[Programme name — to be confirmed by Seed of Hope]"
+msgstr ""
+
+#: patterns/program-sheet.php:29
+msgid "[Short description of the programme — to be confirmed by Seed of Hope]"
+msgstr ""
+
+#: patterns/program-sheet.php:51
+msgid "Information on this page is published only after confirmation by Seed of Hope. No diploma, job or result is guaranteed without an official basis."
+msgstr ""
+
+#: patterns/program-sheet.php:57
+msgid "Ask for information"
+msgstr ""
+
+#: patterns/search-header.php
+msgctxt "Pattern title"
+msgid "Search results header"
+msgstr ""
+
+#: patterns/search-header.php
+msgctxt "Pattern description"
+msgid "Search results title and a search form to refine the query."
+msgstr ""
+
+#: patterns/testimonial.php
+msgctxt "Pattern title"
+msgid "Testimonial"
+msgstr ""
+
+#: patterns/testimonial.php
+msgctxt "Pattern description"
+msgid "A testimonial with a visible consent statement. Publish only with the written consent of the person quoted."
+msgstr ""
+
+#: patterns/testimonial.php:16
+msgid "Testimonial"
+msgstr ""
+
+#: patterns/testimonial.php:22
+msgid "[Testimonial to be provided by Seed of Hope, with the written consent of the person quoted]"
+msgstr ""
+
+#: patterns/testimonial.php:24
+msgid "[First name and programme — to be confirmed]"
+msgstr ""
+
+#: patterns/testimonial.php:28
+msgid "Consent: this testimonial is published only with the written consent of the person quoted."
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Warm white"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sand"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Deep green ink"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Muted ink"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Leaf green"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Forest green"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Terracotta"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sunrise gold"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Soft sage"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Soft sunrise"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Atkinson Hyperlegible"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Lexend"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Body"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Gigantic"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XS"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "S"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "M"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "L"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "XXL"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page without title"
+msgstr ""
