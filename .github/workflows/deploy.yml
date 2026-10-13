@@ -1,0 +1,136 @@
+# Deploys the theme, the core plugin and the mu-plugins to the shared hosting over SSH + rsync.
+#
+# - Every merge on main deploys to STAGING.
+# - PRODUCTION is deployed by hand: Actions → Deploy → Run workflow → environment "production".
+#   The "production" environment requires Samuel's approval (see docs/deploiement.md).
+#
+# Only our code is sent. WordPress core, uploads, wp-config.php and the database are never touched.
+# Secrets and variables are stored per GitHub environment (staging / production), see docs/deploiement.md:
+#   secrets: SSH_HOST, SSH_PORT, SSH_USER, SSH_PRIVATE_KEY, SSH_KNOWN_HOSTS, WP_PATH
+#   variables: WP_URL
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "wp-content/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Where to deploy
+        type: choice
+        options: [staging, production]
+        default: staging
+      dry_run:
+        description: Only show what would change (rsync --dry-run)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: deploy (${{ inputs.environment || 'staging' }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment:
+      name: ${{ inputs.environment || 'staging' }}
+      url: ${{ vars.WP_URL }}
+    # Never run two deployments to the same environment at the same time.
+    concurrency:
+      group: deploy-${{ inputs.environment || 'staging' }}
+      cancel-in-progress: false
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      WP_PATH: ${{ secrets.WP_PATH }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+      WP_URL: ${{ vars.WP_URL }}
+      DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+    steps:
+      - uses: actions/checkout@v7
+
+      # Before the hosting exists, merges on main skip the deployment instead of failing.
+      # A manual run fails loudly so a missing secret is noticed.
+      - name: Check that the environment is configured
+        id: config
+        run: |
+          missing=""
+          for name in SSH_HOST SSH_PORT SSH_USER WP_PATH SSH_PRIVATE_KEY SSH_KNOWN_HOSTS; do
+            if [ -z "${!name}" ]; then missing="$missing $name"; fi
+          done
+          if [ -z "$missing" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "::error::Missing secrets in this environment:$missing (see docs/deploiement.md)"
+            exit 1
+          else
+            echo "::warning::Deployment skipped, missing secrets:$missing (see docs/deploiement.md)"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Configure SSH (key + pinned host key)
+        if: ${{ steps.config.outputs.ready == 'true' }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          cat > ~/.ssh/config <<EOF
+          Host deploy-target
+            HostName $SSH_HOST
+            Port $SSH_PORT
+            User $SSH_USER
+            IdentityFile ~/.ssh/deploy_key
+            IdentitiesOnly yes
+            StrictHostKeyChecking yes
+          EOF
+          ssh deploy-target "test -f '$WP_PATH/wp-config.php'" \
+            || { echo "::error::No WordPress found at WP_PATH"; exit 1; }
+
+      - name: Deploy theme
+        if: ${{ steps.config.outputs.ready == 'true' }}
+        run: |
+          rsync -rlptzv --delete $DRY_RUN \
+            wp-content/themes/seed-of-hope/ \
+            "deploy-target:$WP_PATH/wp-content/themes/seed-of-hope/"
+
+      - name: Deploy plugin
+        if: ${{ steps.config.outputs.ready == 'true' }}
+        run: |
+          rsync -rlptzv --delete $DRY_RUN \
+            wp-content/plugins/seed-of-hope-core/ \
+            "deploy-target:$WP_PATH/wp-content/plugins/seed-of-hope-core/"
+
+      # File by file, without --delete: the host may keep its own mu-plugins in this folder.
+      - name: Deploy mu-plugins
+        if: ${{ steps.config.outputs.ready == 'true' }}
+        run: |
+          ssh deploy-target "mkdir -p '$WP_PATH/wp-content/mu-plugins'"
+          rsync -rlptzv $DRY_RUN wp-content/mu-plugins/*.php \
+            "deploy-target:$WP_PATH/wp-content/mu-plugins/"
+
+      - name: Activate the plugin and flush caches (WP-CLI)
+        if: ${{ steps.config.outputs.ready == 'true' && !inputs.dry_run }}
+        run: |
+          ssh deploy-target "cd '$WP_PATH' && \
+            (wp plugin is-active seed-of-hope-core || wp plugin activate seed-of-hope-core) && \
+            wp cache flush && \
+            (wp litespeed-purge all 2>/dev/null || true) && \
+            wp theme list --status=active --field=name"
+
+      - name: Smoke test
+        if: ${{ steps.config.outputs.ready == 'true' && !inputs.dry_run && env.WP_URL != '' }}
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' "$WP_URL/")
+          echo "Home page answered HTTP $code"
+          test "$code" = 200
+
+      - name: Clean up the key
+        if: ${{ always() }}
+        run: rm -f ~/.ssh/deploy_key
