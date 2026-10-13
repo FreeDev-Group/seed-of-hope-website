@@ -1,0 +1,134 @@
+/*
+Theme Name: Seed of Hope
+Theme URI: https://github.com/FreeDev-Group/seed-of-hope-website
+Author: FreeDev-Group
+Author URI: https://github.com/FreeDev-Group
+Description: Accessible block theme for Seed of Hope / Semence d'Espoir, a LePhare ministry offering adult literacy and vocational training. Fully editable in the Site Editor.
+Requires at least: 7.0
+Tested up to: 7.1
+Requires PHP: 8.1
+Version: 0.1.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: seed-of-hope
+Domain Path: /languages
+Tags: block-patterns, full-site-editing, accessibility-ready, translation-ready, one-column, wide-blocks
+*/
+
+/*
+ * Keep this file small: colours, typography, spacing and buttons live in theme.json.
+ * Only what theme.json cannot express belongs here.
+ */
+
+/*
+ * Skip link: WordPress (7.0+) prints "Skip to content" / "Aller au contenu" before the
+ * header, pointing at <main id="main">. Make it large and high-contrast when focused.
+ */
+.skip-link.screen-reader-text:focus {
+	padding: 0.75em 1.25em;
+	background: var(--wp--preset--color--primary-dark);
+	color: var(--wp--preset--color--base);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 700;
+	text-decoration: underline;
+	border-radius: var(--wp--custom--radius--small);
+	outline: var(--wp--custom--focus--width) solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+/* A visible focus ring on everything keyboard users can reach. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: var(--wp--custom--focus--width) solid var(--wp--custom--focus--color);
+	outline-offset: 3px;
+}
+
+/* On dark sections, switch the focus ring to the light accent so it stays visible. */
+:where(.has-primary-background-color, .has-primary-dark-background-color, .has-contrast-background-color) :focus-visible {
+	outline-color: var(--wp--preset--color--accent);
+}
+
+/*
+ * Navigation: core switches to the menu button below 600px only. With eight menu
+ * items in a readable font size, the menu wraps on tablets, so keep the menu button
+ * up to 1200px.
+ */
+@media (min-width: 600px) and (max-width: 1199.98px) {
+	.wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: flex;
+	}
+
+	.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		display: none;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-close {
+		display: flex;
+	}
+}
+
+/* Open menu: left-aligned items read more easily, and the "Menu" / "Close" buttons look like buttons. */
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content,
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container,
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container {
+	align-items: flex-start;
+}
+
+.wp-block-navigation__responsive-container-open,
+.wp-block-navigation__responsive-container-close {
+	padding: 0.4em 0.9em;
+	border: 2px solid currentColor;
+	border-radius: var(--wp--custom--radius--small);
+}
+
+/* Main can receive focus from the skip link without showing a ring around the whole page. */
+#main:focus {
+	outline: none;
+}
+
+/* FAQ accordions: make the clickable summary obvious. */
+.wp-block-details summary {
+	cursor: pointer;
+	font-weight: 700;
+}
+
+/* Placeholder text waiting for client content stays visible to editors and reviewers. */
+.seed-of-hope-tbc {
+	background: var(--wp--preset--color--accent-soft);
+	color: var(--wp--preset--color--contrast);
+	padding: 0.25em 0.5em;
+	border-radius: 0.2em;
+}
+
+/* Header, main and footer sit edge to edge; sections bring their own spacing. */
+.wp-site-blocks > * + * {
+	margin-block-start: 0;
+}
+
+/* Space before the footer, except when a page ends with a full-width section (e.g. call to action). */
+.wp-block-post-content > :last-child:not(.alignfull) {
+	margin-bottom: var(--wp--preset--spacing--50);
+}
+
+/* Respect users who prefer less motion. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Dark sections: text links follow the light text colour (buttons keep their own colours). */
+.has-primary-background-color a:not(.wp-element-button),
+.has-primary-dark-background-color a:not(.wp-element-button),
+.has-contrast-background-color a:not(.wp-element-button) {
+	color: inherit;
+}
+
+/* Cards placed in columns or grids line up at the same height. */
+.wp-block-column > .wp-block-group:only-child {
+	height: 100%;
+}
