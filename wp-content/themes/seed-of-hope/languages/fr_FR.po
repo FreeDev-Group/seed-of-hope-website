@@ -16,7 +16,7 @@ msgstr ""
 
 #. Theme Name of the theme
 #: style.css
-#: functions.php:46
+#: functions.php:68
 msgid "Seed of Hope"
 msgstr "Seed of Hope"
 
@@ -40,11 +40,11 @@ msgstr ""
 msgid "https://github.com/FreeDev-Group"
 msgstr ""
 
-#: functions.php:47
+#: functions.php:69
 msgid "Ready-made sections for the Seed of Hope website."
 msgstr "Sections prêtes à l’emploi pour le site de Seed of Hope."
 
-#: functions.php:96
+#: functions.php:118
 msgid "[To be confirmed by Seed of Hope]"
 msgstr "[À confirmer par Seed of Hope]"
 
@@ -92,20 +92,20 @@ msgctxt "Pattern description"
 msgid "Invitation to contact the team or to support the ministry."
 msgstr "Invitation à contacter l’équipe ou à soutenir le ministère."
 
-#: patterns/call-to-action.php:16
+#: patterns/call-to-action.php:20
 msgid "Would you like to learn, volunteer or work with us?"
 msgstr "Vous souhaitez apprendre, devenir bénévole ou travailler avec nous ?"
 
-#: patterns/call-to-action.php:20
+#: patterns/call-to-action.php:24
 msgid "Contact the Seed of Hope team with your questions. Everyone is welcome."
 msgstr "Contactez l’équipe de Seed of Hope pour toute question. Chacun est le bienvenu."
 
-#: patterns/call-to-action.php:26
+#: patterns/call-to-action.php:30
 #: patterns/hero.php:42
 msgid "Contact us"
 msgstr "Nous contacter"
 
-#: patterns/call-to-action.php:30
+#: patterns/call-to-action.php:34
 #: patterns/footer.php:65
 msgid "Support the ministry"
 msgstr "Soutenir le ministère"
@@ -218,12 +218,12 @@ msgid "Quick links"
 msgstr "Liens rapides"
 
 #: patterns/footer.php:57
-#: patterns/program-cards.php:16
+#: patterns/program-cards.php:20
 msgid "Our programmes"
 msgstr "Nos programmes"
 
 #: patterns/footer.php:61
-#: patterns/latest-news.php:18
+#: patterns/latest-news.php:22
 #: patterns/news-header.php:12
 msgid "News and activities"
 msgstr "Actualités et activités"
@@ -305,11 +305,11 @@ msgctxt "Pattern description"
 msgid "The three most recent news posts with a link to the news page."
 msgstr "Les trois actualités les plus récentes, avec un lien vers la page Actualités."
 
-#: patterns/latest-news.php:37
+#: patterns/latest-news.php:41
 msgid "No news has been published yet."
 msgstr "Aucune actualité n’a encore été publiée."
 
-#: patterns/latest-news.php:46
+#: patterns/latest-news.php:50
 msgid "See all news and activities"
 msgstr "Voir toutes les actualités et activités"
 
@@ -323,23 +323,23 @@ msgctxt "Pattern description"
 msgid "Three cards presenting the mission, the vision and the values of Seed of Hope."
 msgstr "Trois cartes présentant la mission, la vision et les valeurs de Seed of Hope."
 
-#: patterns/mission-vision-values.php:16
+#: patterns/mission-vision-values.php:20
 msgid "Who we are"
 msgstr "Qui sommes-nous ?"
 
-#: patterns/mission-vision-values.php:20
+#: patterns/mission-vision-values.php:24
 msgid "Seed of Hope (Semence d’Espoir) is a ministry of LePhare. It supports adults through literacy and vocational training."
 msgstr "Semence d’Espoir (Seed of Hope) est un ministère de LePhare. Il accompagne les adultes par l’alphabétisation et la formation professionnelle."
 
-#: patterns/mission-vision-values.php:30
+#: patterns/mission-vision-values.php:34
 msgid "Our mission"
 msgstr "Notre mission"
 
-#: patterns/mission-vision-values.php:46
+#: patterns/mission-vision-values.php:50
 msgid "Our vision"
 msgstr "Notre vision"
 
-#: patterns/mission-vision-values.php:62
+#: patterns/mission-vision-values.php:66
 msgid "Our values"
 msgstr "Nos valeurs"
 
@@ -403,39 +403,39 @@ msgctxt "Pattern description"
 msgid "Two cards linking to the literacy and vocational training pages."
 msgstr "Deux cartes menant aux pages Alphabétisation et Formation professionnelle."
 
-#: patterns/program-cards.php:20
+#: patterns/program-cards.php:24
 msgid "Seed of Hope offers literacy and vocational training for adults."
 msgstr "Seed of Hope propose l’alphabétisation et la formation professionnelle pour adultes."
 
-#: patterns/program-cards.php:30
+#: patterns/program-cards.php:34
 msgid "Literacy"
 msgstr "Alphabétisation"
 
-#: patterns/program-cards.php:34
+#: patterns/program-cards.php:38
 msgid "Learn to read and write, and strengthen basic skills that are useful in daily, social and working life."
 msgstr "Apprendre à lire et à écrire, et renforcer des compétences de base utiles dans la vie quotidienne, sociale et professionnelle."
 
-#: patterns/program-cards.php:38
+#: patterns/program-cards.php:42
 msgid "[Levels, schedule and location to be confirmed by Seed of Hope]"
 msgstr "[Niveaux, horaires et lieu à confirmer par Seed of Hope]"
 
-#: patterns/program-cards.php:44
+#: patterns/program-cards.php:48
 msgid "Discover the literacy programme"
 msgstr "Découvrir le programme d’alphabétisation"
 
-#: patterns/program-cards.php:58
+#: patterns/program-cards.php:62
 msgid "Vocational training"
 msgstr "Formation professionnelle"
 
-#: patterns/program-cards.php:62
+#: patterns/program-cards.php:66
 msgid "Build practical and professional skills through training and workshops."
 msgstr "Développer des compétences pratiques et professionnelles grâce à des formations et des ateliers."
 
-#: patterns/program-cards.php:66
+#: patterns/program-cards.php:70
 msgid "[Training tracks and workshops to be confirmed by Seed of Hope]"
 msgstr "[Filières et ateliers à confirmer par Seed of Hope]"
 
-#: patterns/program-cards.php:72
+#: patterns/program-cards.php:76
 msgid "Discover vocational training"
 msgstr "Découvrir la formation professionnelle"
 
@@ -535,51 +535,6 @@ msgid "Warm white"
 msgstr "Blanc chaud"
 
 #: theme.json
-msgctxt "Color name"
-msgid "Sand"
-msgstr "Sable"
-
-#: theme.json
-msgctxt "Color name"
-msgid "Deep green ink"
-msgstr "Encre vert profond"
-
-#: theme.json
-msgctxt "Color name"
-msgid "Muted ink"
-msgstr "Encre adoucie"
-
-#: theme.json
-msgctxt "Color name"
-msgid "Leaf green"
-msgstr "Vert feuille"
-
-#: theme.json
-msgctxt "Color name"
-msgid "Forest green"
-msgstr "Vert forêt"
-
-#: theme.json
-msgctxt "Color name"
-msgid "Terracotta"
-msgstr "Terre cuite"
-
-#: theme.json
-msgctxt "Color name"
-msgid "Sunrise gold"
-msgstr "Or du levant"
-
-#: theme.json
-msgctxt "Color name"
-msgid "Soft sage"
-msgstr "Sauge douce"
-
-#: theme.json
-msgctxt "Color name"
-msgid "Soft sunrise"
-msgstr "Aube douce"
-
-#: theme.json
 msgctxt "Font family name"
 msgid "Atkinson Hyperlegible"
 msgstr "Atkinson Hyperlegible"
@@ -667,4 +622,98 @@ msgstr "Page sans titre"
 #: patterns/header.php
 msgctxt "Pattern description"
 msgid "Site identity and responsive main navigation. WordPress adds the \"Skip to content\" link before the header."
-msgstr ""
+msgstr "Identité du site et navigation principale adaptative. WordPress ajoute le lien « Aller au contenu » avant l’en-tête."
+
+#: functions.php:48
+msgid "Eyebrow label"
+msgstr "Étiquette de section"
+
+#: functions.php:55
+msgid "Card"
+msgstr "Carte"
+
+#: patterns/call-to-action.php:16
+msgid "Get involved"
+msgstr "S’impliquer"
+
+#: patterns/latest-news.php:18
+msgid "Stay informed"
+msgstr "Restez informés"
+
+#: patterns/mission-vision-values.php:16
+msgid "About us"
+msgstr "À propos de nous"
+
+#: patterns/program-cards.php:16
+msgid "What we offer"
+msgstr "Ce que nous proposons"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Night sky"
+msgstr "Ciel de nuit"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Dawn"
+msgstr "Aube"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Mist"
+msgstr "Brume"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Stone"
+msgstr "Pierre"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Night ink"
+msgstr "Encre de nuit"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Slate"
+msgstr "Ardoise"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Lighthouse indigo"
+msgstr "Indigo phare"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Night sky"
+msgstr "Ciel de nuit"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Ember"
+msgstr "Braise"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sunrise"
+msgstr "Lever du jour"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Mist"
+msgstr "Brume"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Dawn"
+msgstr "Aube"
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Card"
+msgstr "Carte"
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Lift"
+msgstr "Élévation"
