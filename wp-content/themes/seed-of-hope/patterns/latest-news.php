@@ -14,6 +14,10 @@ $seed_of_hope_news_url   = $seed_of_hope_posts_page ? get_permalink( $seed_of_ho
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+<p class="has-text-align-center is-style-eyebrow"><?php esc_html_e( 'Stay informed', 'seed-of-hope' ); ?></p>
+<!-- /wp:paragraph -->
+
 <!-- wp:heading {"textAlign":"center"} -->
 <h2 class="wp-block-heading has-text-align-center"><?php esc_html_e( 'News and activities', 'seed-of-hope' ); ?></h2>
 <!-- /wp:heading -->
@@ -21,8 +25,8 @@ $seed_of_hope_news_url   = $seed_of_hope_posts_page ? get_permalink( $seed_of_ho
 <!-- wp:query {"queryId":20,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false},"align":"wide","layout":{"type":"default"}} -->
 <div class="wp-block-query alignwide">
 <!-- wp:post-template {"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"16rem"}} -->
-<!-- wp:group {"style":{"border":{"radius":"0.75rem"},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|10"}},"backgroundColor":"surface","layout":{"type":"default"}} -->
-<div class="wp-block-group has-surface-background-color has-background" style="border-radius:0.75rem;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
+<!-- wp:group {"className":"is-style-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|10"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-card" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)">
 <!-- wp:post-title {"level":3,"isLink":true,"fontSize":"large"} /-->
 
 <!-- wp:post-date /-->
