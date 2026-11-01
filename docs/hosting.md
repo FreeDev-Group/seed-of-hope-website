@@ -57,13 +57,14 @@ The budget alternative is **Namecheap Stellar Plus** (about half the price over 
 
 ## What to buy (do not buy before Samuel's approval)
 
-1. Plan: **Hostinger Web Hosting → Unlimited → 12 months**.
-2. Account email: the dedicated project mailbox (not a personal one).
-3. Domain: only if Seed of Hope does not already own one (open question in `docs/project-brief.md`).
+1. **Domain purchased:** `seedofhopebukavu.org` — purchased on **15 October 2026** for **US$ 9.19** (see [issue #7](https://github.com/FreeDev-Group/seed-of-hope-website/issues/7)). No further domain purchase is needed.
+2. Plan: **Hostinger Web Hosting → Unlimited → 12 months**.
+3. Account email: the dedicated project mailbox (not a personal one).
 4. Payment: the team's Visa card. Do not save the card for automatic renewal if the client takes over in year 2.
 5. Data center: France or the Netherlands.
 6. **Price checked on 16 October 2026:** US$ 53.89 total for the 12-month term with coupon `MM10`; renewal displayed at US$ 16.99/month (US$ 203.88/year). Recheck both prices on the actual purchase day.
 
+**Only the hosting plan remains to be purchased.**
 ### Purchase-day checklist
 
 Prices were checked on 16 October 2026, but the purchase-day checks below remain incomplete. Recheck the prices and settings when the team is authorized to buy.
