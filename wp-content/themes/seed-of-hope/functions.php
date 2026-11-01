@@ -37,6 +37,28 @@ function seed_of_hope_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'seed_of_hope_enqueue_assets' );
 
 /**
+ * Registers block styles editors can pick in the block sidebar (Styles panel).
+ * Their CSS lives in style.css.
+ */
+function seed_of_hope_register_block_styles() {
+	register_block_style(
+		'core/paragraph',
+		array(
+			'name'  => 'eyebrow',
+			'label' => __( 'Eyebrow label', 'seed-of-hope' ),
+		)
+	);
+	register_block_style(
+		'core/group',
+		array(
+			'name'  => 'card',
+			'label' => __( 'Card', 'seed-of-hope' ),
+		)
+	);
+}
+add_action( 'init', 'seed_of_hope_register_block_styles' );
+
+/**
  * Registers the "Seed of Hope" pattern category used by every theme pattern.
  */
 function seed_of_hope_register_pattern_category() {
