@@ -2,21 +2,21 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Seed of Hope 0.1.0\n"
+"Project-Id-Version: Seed of Hope 0.2.0\n"
 "Report-Msgid-Bugs-To: https://github.com/FreeDev-Group/seed-of-hope-website/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-13T13:48:06+00:00\n"
+"POT-Creation-Date: 2026-11-01T11:08:42+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: seed-of-hope\n"
 
 #. Theme Name of the theme
 #: style.css
-#: functions.php:46
+#: functions.php:68
 msgid "Seed of Hope"
 msgstr ""
 
@@ -40,11 +40,19 @@ msgstr ""
 msgid "https://github.com/FreeDev-Group"
 msgstr ""
 
-#: functions.php:47
+#: functions.php:48
+msgid "Eyebrow label"
+msgstr ""
+
+#: functions.php:55
+msgid "Card"
+msgstr ""
+
+#: functions.php:69
 msgid "Ready-made sections for the Seed of Hope website."
 msgstr ""
 
-#: functions.php:96
+#: functions.php:118
 msgid "[To be confirmed by Seed of Hope]"
 msgstr ""
 
@@ -93,19 +101,23 @@ msgid "Invitation to contact the team or to support the ministry."
 msgstr ""
 
 #: patterns/call-to-action.php:16
-msgid "Would you like to learn, volunteer or work with us?"
+msgid "Get involved"
 msgstr ""
 
 #: patterns/call-to-action.php:20
+msgid "Would you like to learn, volunteer or work with us?"
+msgstr ""
+
+#: patterns/call-to-action.php:24
 msgid "Contact the Seed of Hope team with your questions. Everyone is welcome."
 msgstr ""
 
-#: patterns/call-to-action.php:26
+#: patterns/call-to-action.php:30
 #: patterns/hero.php:42
 msgid "Contact us"
 msgstr ""
 
-#: patterns/call-to-action.php:30
+#: patterns/call-to-action.php:34
 #: patterns/footer.php:65
 msgid "Support the ministry"
 msgstr ""
@@ -218,12 +230,12 @@ msgid "Quick links"
 msgstr ""
 
 #: patterns/footer.php:57
-#: patterns/program-cards.php:16
+#: patterns/program-cards.php:20
 msgid "Our programmes"
 msgstr ""
 
 #: patterns/footer.php:61
-#: patterns/latest-news.php:18
+#: patterns/latest-news.php:22
 #: patterns/news-header.php:12
 msgid "News and activities"
 msgstr ""
@@ -310,11 +322,15 @@ msgctxt "Pattern description"
 msgid "The three most recent news posts with a link to the news page."
 msgstr ""
 
-#: patterns/latest-news.php:37
+#: patterns/latest-news.php:18
+msgid "Stay informed"
+msgstr ""
+
+#: patterns/latest-news.php:41
 msgid "No news has been published yet."
 msgstr ""
 
-#: patterns/latest-news.php:46
+#: patterns/latest-news.php:50
 msgid "See all news and activities"
 msgstr ""
 
@@ -329,22 +345,26 @@ msgid "Three cards presenting the mission, the vision and the values of Seed of 
 msgstr ""
 
 #: patterns/mission-vision-values.php:16
-msgid "Who we are"
+msgid "About us"
 msgstr ""
 
 #: patterns/mission-vision-values.php:20
+msgid "Who we are"
+msgstr ""
+
+#: patterns/mission-vision-values.php:24
 msgid "Seed of Hope (Semence d’Espoir) is a ministry of LePhare. It supports adults through literacy and vocational training."
 msgstr ""
 
-#: patterns/mission-vision-values.php:30
+#: patterns/mission-vision-values.php:34
 msgid "Our mission"
 msgstr ""
 
-#: patterns/mission-vision-values.php:46
+#: patterns/mission-vision-values.php:50
 msgid "Our vision"
 msgstr ""
 
-#: patterns/mission-vision-values.php:62
+#: patterns/mission-vision-values.php:66
 msgid "Our values"
 msgstr ""
 
@@ -408,39 +428,43 @@ msgctxt "Pattern description"
 msgid "Two cards linking to the literacy and vocational training pages."
 msgstr ""
 
-#: patterns/program-cards.php:20
+#: patterns/program-cards.php:16
+msgid "What we offer"
+msgstr ""
+
+#: patterns/program-cards.php:24
 msgid "Seed of Hope offers literacy and vocational training for adults."
 msgstr ""
 
-#: patterns/program-cards.php:30
+#: patterns/program-cards.php:34
 msgid "Literacy"
 msgstr ""
 
-#: patterns/program-cards.php:34
+#: patterns/program-cards.php:38
 msgid "Learn to read and write, and strengthen basic skills that are useful in daily, social and working life."
 msgstr ""
 
-#: patterns/program-cards.php:38
+#: patterns/program-cards.php:42
 msgid "[Levels, schedule and location to be confirmed by Seed of Hope]"
 msgstr ""
 
-#: patterns/program-cards.php:44
+#: patterns/program-cards.php:48
 msgid "Discover the literacy programme"
 msgstr ""
 
-#: patterns/program-cards.php:58
+#: patterns/program-cards.php:62
 msgid "Vocational training"
 msgstr ""
 
-#: patterns/program-cards.php:62
+#: patterns/program-cards.php:66
 msgid "Build practical and professional skills through training and workshops."
 msgstr ""
 
-#: patterns/program-cards.php:66
+#: patterns/program-cards.php:70
 msgid "[Training tracks and workshops to be confirmed by Seed of Hope]"
 msgstr ""
 
-#: patterns/program-cards.php:72
+#: patterns/program-cards.php:76
 msgid "Discover vocational training"
 msgstr ""
 
@@ -535,53 +559,68 @@ msgid "Consent: this testimonial is published only with the written consent of t
 msgstr ""
 
 #: theme.json
+msgctxt "Gradient name"
+msgid "Night sky"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Dawn"
+msgstr ""
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Mist"
+msgstr ""
+
+#: theme.json
 msgctxt "Color name"
 msgid "Warm white"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Sand"
+msgid "Stone"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Deep green ink"
+msgid "Night ink"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Muted ink"
+msgid "Slate"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Leaf green"
+msgid "Lighthouse indigo"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Forest green"
+msgid "Night sky"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Terracotta"
+msgid "Ember"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Sunrise gold"
+msgid "Sunrise"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Soft sage"
+msgid "Mist"
 msgstr ""
 
 #: theme.json
 msgctxt "Color name"
-msgid "Soft sunrise"
+msgid "Dawn"
 msgstr ""
 
 #: theme.json
@@ -652,6 +691,16 @@ msgstr ""
 #: theme.json
 msgctxt "Space size name"
 msgid "XXL"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Card"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Lift"
 msgstr ""
 
 #: theme.json
