@@ -103,13 +103,25 @@ Short architecture decision records (ADR). Add a new entry instead of rewriting 
   access to the code or secrets.
 - `main` is protected: PR + 1 approval + both checks green.
 
-## ADR-010 — Hosting: Hostinger "Unlimited", deployment by SSH + rsync
+## ADR-010 — Hosting: Hostinger, deployment by FTPS (supersedes the SSH + rsync plan)
 
 - See [hosting.md](hosting.md) for the comparison with o2switch and Namecheap (prices checked 13 Oct 2026).
-- **Deciding factor**: o2switch only allows SSH from at most 5 allow-listed IPs, which does not work with
-  GitHub-hosted runners. Hostinger offers SSH without allow-list, staging, daily backups and French support.
-- Deployment (`deploy.yml`): every merge on `main` → staging; production by manual run with required approval.
-  rsync with `--delete` only inside our theme and plugin folders; mu-plugins copied file by file.
+  The recommended plan was *Unlimited* (SSH, staging, several websites).
+- **Plan actually in use** (hPanel, Nov 2026): **1 website**, 10 GB, **no SSH**, FTP, daily backups,
+  server in Frankfurt (Germany), backups stored in France.
+- **Consequences**
+  - Deployment uses **FTPS** (FTP over TLS) with `lftp` ([`scripts/deploy-ftp.sh`](../scripts/deploy-ftp.sh)),
+    installed on the GitHub runner: still no third-party action. A dedicated FTP account limited to
+    `public_html` is used for deployments.
+  - `--delete` only applies inside our theme and plugin folders; mu-plugins are uploaded without deleting the
+    host's own; the script refuses to run if the target folder has no `wp-config.php`. Tested locally against
+    an FTP server in Docker (dry run, real run, wrong path).
+  - **No staging site** (1 website only): safety comes from local tests, CI on every PR, a dry-run default for
+    manual runs and **Samuel's approval before every production deployment**.
+  - **No WP-CLI on the server**: activating the theme/plugin and purging the cache are done in wp-admin and
+    hPanel; `scripts/setup.sh` only runs locally.
+- **Revisit** if the site needs a staging copy or SSH: upgrading to a higher Hostinger plan brings both back,
+  and the previous SSH workflow is in the Git history.
 
 ## ADR-011 — Third-party plugins
 

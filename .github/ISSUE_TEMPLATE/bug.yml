@@ -13,7 +13,7 @@ body:
     id: url
     attributes:
       label: Page URL
-      placeholder: http://localhost:8888/contact/ or https://staging.example.org/contact/
+      placeholder: http://localhost:8888/contact/ or https://seedofhopebukavu.org/contact/
     validations:
       required: true
   - type: dropdown

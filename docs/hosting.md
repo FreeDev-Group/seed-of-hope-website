@@ -1,5 +1,8 @@
 # Hosting comparison and recommendation
 
+> **Update (Nov 2026)**: the plan in use has **1 website and no SSH**, so deployments use **FTPS** and there is no
+> staging site. See ADR-010 in [decisions.md](decisions.md) and [deploiement.md](deploiement.md).
+
 > Prices checked on the official websites on **13 October 2026**, without being logged in, with the default region of each site. Hostinger's checkout prices were rechecked on **16 October 2026** using the `MM10` coupon for a 12-month subscription. Promotional prices change often: **re-check the checkout page before paying.** Nothing has been bought.
 
 ## Recommendation

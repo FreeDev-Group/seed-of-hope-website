@@ -26,7 +26,7 @@ questions are part of the job.
 6. **Review** — at least **1 approval** (Samuel is requested automatically via CODEOWNERS).
    Reply to every comment; push fixes as new commits (no force-push during review).
 7. **Squash merge** — the PR title becomes the commit on `main`, so it must follow Conventional Commits.
-   The branch is deleted automatically. Merging to `main` deploys to **staging**.
+   The branch is deleted automatically. Merging to `main` prepares a deployment to **production**, which waits for Samuel's approval.
 
 `main` is protected: no direct push, PR + 1 review + green CI required.
 

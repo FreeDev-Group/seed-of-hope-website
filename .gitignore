@@ -21,6 +21,9 @@ id_ed25519*
 !/wp-content/mu-plugins/
 /wp-content/uploads/
 
+# Documents and photos received from the client: personal data, never in this public repo
+/docs/client/
+
 # Test output
 /test-results/
 /playwright-report/
