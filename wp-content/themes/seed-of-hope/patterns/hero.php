@@ -10,14 +10,14 @@
  */
 
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"primary-soft","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-primary-soft-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
-<!-- wp:columns {"verticalAlignment":"center","align":"wide"} -->
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"gradient":"night-sky","textColor":"base","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-base-color has-night-sky-gradient-background has-text-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"}}}} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-center">
-<!-- wp:column {"verticalAlignment":"center","width":"60%"} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:60%">
-<!-- wp:paragraph {"textColor":"secondary","fontSize":"large"} -->
-<p class="has-secondary-color has-text-color has-large-font-size"><strong><?php esc_html_e( 'A ministry of LePhare', 'seed-of-hope' ); ?></strong></p>
+<!-- wp:column {"verticalAlignment":"center","width":"58%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:58%">
+<!-- wp:paragraph {"className":"is-style-eyebrow"} -->
+<p class="is-style-eyebrow"><?php esc_html_e( 'A ministry of LePhare', 'seed-of-hope' ); ?></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1} -->
@@ -32,24 +32,24 @@
 <p class="seed-of-hope-tbc"><?php esc_html_e( '[Welcome message to be confirmed by Seed of Hope]', 'seed-of-hope' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons -->
-<div class="wp-block-buttons">
-<!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( seed_of_hope_page_url( 'nos-programmes' ) ); ?>"><?php esc_html_e( 'Discover our programmes', 'seed-of-hope' ); ?></a></div>
+<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--30)">
+<!-- wp:button {"backgroundColor":"accent","textColor":"contrast"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-contrast-color has-accent-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( seed_of_hope_page_url( 'nos-programmes' ) ); ?>"><?php esc_html_e( 'Discover our programmes', 'seed-of-hope' ); ?></a></div>
 <!-- /wp:button -->
 
-<!-- wp:button {"textColor":"primary-dark","className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-primary-dark-color has-text-color wp-element-button" href="<?php echo esc_url( seed_of_hope_page_url( 'contact' ) ); ?>"><?php esc_html_e( 'Contact us', 'seed-of-hope' ); ?></a></div>
+<!-- wp:button {"textColor":"base","className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-base-color has-text-color wp-element-button" href="<?php echo esc_url( seed_of_hope_page_url( 'contact' ) ); ?>"><?php esc_html_e( 'Contact us', 'seed-of-hope' ); ?></a></div>
 <!-- /wp:button -->
 </div>
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:column -->
 
-<!-- wp:column {"verticalAlignment":"center","width":"40%"} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:40%">
+<!-- wp:column {"verticalAlignment":"center","width":"42%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:42%">
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/seedling.svg' ); ?>" alt=""/></figure>
+<figure class="wp-block-image aligncenter size-full"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hope-light.svg' ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 </div>
 <!-- /wp:column -->

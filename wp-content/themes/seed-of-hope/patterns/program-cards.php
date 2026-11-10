@@ -10,8 +10,12 @@
  */
 
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"surface","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"gradient":"mist","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-mist-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+<p class="has-text-align-center is-style-eyebrow"><?php esc_html_e( 'What we offer', 'seed-of-hope' ); ?></p>
+<!-- /wp:paragraph -->
+
 <!-- wp:heading {"textAlign":"center"} -->
 <h2 class="wp-block-heading has-text-align-center"><?php esc_html_e( 'Our programmes', 'seed-of-hope' ); ?></h2>
 <!-- /wp:heading -->
@@ -24,8 +28,8 @@
 <div class="wp-block-columns alignwide">
 <!-- wp:column -->
 <div class="wp-block-column">
-<!-- wp:group {"style":{"border":{"radius":"0.75rem","top":{"color":"var:preset|color|primary","style":"solid","width":"6px"}},"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"default"}} -->
-<div class="wp-block-group has-base-background-color has-background" style="border-radius:0.75rem;border-top-color:var(--wp--preset--color--primary);border-top-style:solid;border-top-width:6px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+<!-- wp:group {"className":"is-style-card","style":{"border":{"top":{"color":"var:preset|color|primary","style":"solid","width":"6px"}},"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-card" style="border-top-color:var(--wp--preset--color--primary);border-top-style:solid;border-top-width:6px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading"><?php esc_html_e( 'Literacy', 'seed-of-hope' ); ?></h3>
 <!-- /wp:heading -->
@@ -52,8 +56,8 @@
 
 <!-- wp:column -->
 <div class="wp-block-column">
-<!-- wp:group {"style":{"border":{"radius":"0.75rem","top":{"color":"var:preset|color|secondary","style":"solid","width":"6px"}},"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"base","layout":{"type":"default"}} -->
-<div class="wp-block-group has-base-background-color has-background" style="border-radius:0.75rem;border-top-color:var(--wp--preset--color--secondary);border-top-style:solid;border-top-width:6px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+<!-- wp:group {"className":"is-style-card","style":{"border":{"top":{"color":"var:preset|color|secondary","style":"solid","width":"6px"}},"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-card" style="border-top-color:var(--wp--preset--color--secondary);border-top-style:solid;border-top-width:6px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading"><?php esc_html_e( 'Vocational training', 'seed-of-hope' ); ?></h3>
 <!-- /wp:heading -->
