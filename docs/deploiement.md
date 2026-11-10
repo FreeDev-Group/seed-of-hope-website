@@ -79,21 +79,21 @@ We create one key **only for deployments**, never a personal key.
 
 ## 4. GitHub environments, secrets and variables (Samuel, repo admin)
 
-GitHub → repository → **Settings** → **Environments** → create **`staging`** and **`production`**.
+GitHub → repository → **Settings** → **Environments**. Both environments, **`staging`** and **`production`**, already exist: open each one and check the settings. Do not create them again.
 
 For **production** only: tick **Required reviewers** → add `@Samuel11s`, and in *Deployment branches*
 choose **Selected branches** → `main`.
 
 In **each** environment, add these **secrets** (*Environment secrets* → *Add secret*):
 
-| Secret | Value | Example |
-| --- | --- | --- |
-| `SSH_HOST` | Host or IP shown in hPanel → SSH Access | `145.223.xx.xx` |
-| `SSH_PORT` | SSH port | `65002` |
-| `SSH_USER` | SSH username | `u123456789` |
-| `SSH_PRIVATE_KEY` | The **whole** content of the private key file `seed-of-hope-deploy`, including the `-----BEGIN…` and `-----END…` lines | |
-| `SSH_KNOWN_HOSTS` | The output of `ssh-keyscan -p 65002 HOST` (all lines) | |
-| `WP_PATH` | Absolute path of the WordPress folder **of this environment** | `/home/u123456789/domains/staging.example.org/public_html` |
+| Secret | Value | Example | Added? |
+| --- | --- | --- | --- |
+| `SSH_HOST` | Host or IP shown in hPanel → SSH Access | `145.223.xx.xx` | ☐ |
+| `SSH_PORT` | SSH port | `65002` | ☐ |
+| `SSH_USER` | SSH username | `u123456789` | ☐ |
+| `SSH_PRIVATE_KEY` | The **whole** content of the private key file `seed-of-hope-deploy`, including the `-----BEGIN…` and `-----END…` lines | | ☐ |
+| `SSH_KNOWN_HOSTS` | The output of `ssh-keyscan -p 65002 HOST` (all lines) | | ☐ |
+| `WP_PATH` | Absolute path of the WordPress folder **of this environment** | `/home/u123456789/domains/staging.example.org/public_html` | ☐ |
 
 And one **variable** (*Environment variables* → *Add variable*):
 
