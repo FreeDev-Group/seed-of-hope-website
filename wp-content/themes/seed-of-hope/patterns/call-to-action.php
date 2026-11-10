@@ -10,8 +10,12 @@
  */
 
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"primary","textColor":"base","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-base-color has-primary-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"gradient":"night-sky","textColor":"base","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-base-color has-night-sky-gradient-background has-text-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
+<p class="has-text-align-center is-style-eyebrow"><?php esc_html_e( 'Get involved', 'seed-of-hope' ); ?></p>
+<!-- /wp:paragraph -->
+
 <!-- wp:heading {"textAlign":"center"} -->
 <h2 class="wp-block-heading has-text-align-center"><?php esc_html_e( 'Would you like to learn, volunteer or work with us?', 'seed-of-hope' ); ?></h2>
 <!-- /wp:heading -->
@@ -22,8 +26,8 @@
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons">
-<!-- wp:button {"backgroundColor":"base","textColor":"primary-dark"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-primary-dark-color has-base-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( seed_of_hope_page_url( 'contact' ) ); ?>"><?php esc_html_e( 'Contact us', 'seed-of-hope' ); ?></a></div>
+<!-- wp:button {"backgroundColor":"accent","textColor":"contrast"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-contrast-color has-accent-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( seed_of_hope_page_url( 'contact' ) ); ?>"><?php esc_html_e( 'Contact us', 'seed-of-hope' ); ?></a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"textColor":"base","className":"is-style-outline"} -->

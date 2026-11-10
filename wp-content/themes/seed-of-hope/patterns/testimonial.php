@@ -10,8 +10,8 @@
  */
 
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"backgroundColor":"accent-soft","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-accent-soft-background-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"gradient":"dawn","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-dawn-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
 <!-- wp:heading -->
 <h2 class="wp-block-heading"><?php esc_html_e( 'Testimonial', 'seed-of-hope' ); ?></h2>
 <!-- /wp:heading -->

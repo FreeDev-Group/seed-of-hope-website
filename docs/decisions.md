@@ -26,14 +26,18 @@ Short architecture decision records (ADR). Add a new entry instead of rewriting 
 
 ## ADR-003 — Design tokens in `theme.json`, contrast checked in CI
 
-- **Palette** (warm and sober — hope, growth, learning): warm white `#FFFDF8`, sand `#F6F0E4`, deep green ink
-  `#1E2A23`, leaf green `#2B6A4B`, forest green `#1D4A35`, terracotta `#9C4318`, sunrise gold `#E8B04A`,
-  soft sage `#E4EFE6`, soft sunrise `#FBEFD6`.
+- **Palette "LePhare"** (v0.2, replaces the first green palette, which looked agricultural): the night sky and
+  the lighthouse beam of LePhare, with the warm light of hope.
+  Night ink `#11172B`, slate `#4B5368`, lighthouse indigo `#3730A3`, night sky `#1E1B4B`, ember `#C2410C`,
+  sunrise `#F7B538`, warm white `#FFFCF7`, stone `#F4F1EC`, mist `#EEF0FF`, dawn `#FFF3DC`.
+- **Gradients**: *Night sky* (hero, call to action, impact), *Mist* (programmes, page titles), *Dawn* (testimonials).
+  **Shadows**: *Card* and *Lift*. **Buttons**: pill-shaped, sunrise gold on dark sections.
+- **Block styles** editors can pick without code: *Eyebrow label* (paragraph) and *Card* (group).
 - **Custom colours are disabled** in the editor so editors can only pick palette colours, and every
   text/background pair used is ≥ 4.5:1 (WCAG AA). `scripts/check-contrast.mjs` reads `theme.json` in CI;
-  the lowest pair is 5.16:1.
+  the lowest pair is 4.57:1 (ember on mist). White text on the lightest end of the night-sky gradient is 7.7:1.
 - **Placeholder** — the logo, official colours and photos are still to be provided by the client
-  (`blocked:client`). The palette will be adjusted then, and the contrast check will catch any regression.
+  (`blocked:client`, #3). The palette will be adjusted then, and the contrast check will catch any regression.
 
 ## ADR-004 — Readable typography, self-hosted fonts
 
@@ -50,11 +54,11 @@ Short architecture decision records (ADR). Add a new entry instead of rewriting 
 - "Aller au contenu" skip link: printed by **WordPress core (7.0+) on the server**, translated, pointing at
   `main#main`; styled by the theme. (We first shipped our own and removed it: core's version is better and
   duplicates were confusing.)
-- Visible focus ring everywhere (3 px terracotta, gold on dark sections).
+- Visible focus ring everywhere (3 px indigo, gold on dark sections).
 - Mobile menu: a text button "Menu" (clearer than an icon alone) up to 1 200 px wide, because eight menu items
   in a large font wrap on tablets.
 - FAQ uses the native `<details>` element: works with keyboard and without JavaScript.
-- No text in images. The hero illustration is a decorative SVG with `alt=""`.
+- No text in images. The hero illustration (a lighthouse whose light rises from an open book) is a decorative SVG with `alt=""`.
 - Tested on every page with **axe-core** (WCAG 2.0/2.1/2.2 A and AA) on desktop and mobile, plus keyboard tests.
 
 ## ADR-006 — "Programme" content type: not now, pages for the launch

@@ -7,7 +7,7 @@ Description: Accessible block theme for Seed of Hope / Semence d'Espoir, a LePha
 Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 8.1
-Version: 0.1.0
+Version: 0.2.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: seed-of-hope
@@ -26,7 +26,7 @@ Tags: block-patterns, full-site-editing, accessibility-ready, translation-ready,
  */
 .skip-link.screen-reader-text:focus {
 	padding: 0.75em 1.25em;
-	background: var(--wp--preset--color--primary-dark);
+	background: var(--wp--preset--color--contrast);
 	color: var(--wp--preset--color--base);
 	font-size: var(--wp--preset--font-size--medium);
 	font-weight: 700;
@@ -43,7 +43,7 @@ Tags: block-patterns, full-site-editing, accessibility-ready, translation-ready,
 }
 
 /* On dark sections, switch the focus ring to the light accent so it stays visible. */
-:where(.has-primary-background-color, .has-primary-dark-background-color, .has-contrast-background-color) :focus-visible {
+:where(.has-primary-background-color, .has-primary-dark-background-color, .has-contrast-background-color, .has-night-sky-gradient-background) :focus-visible {
 	outline-color: var(--wp--preset--color--accent);
 }
 
@@ -95,8 +95,9 @@ Tags: block-patterns, full-site-editing, accessibility-ready, translation-ready,
 .seed-of-hope-tbc {
 	background: var(--wp--preset--color--accent-soft);
 	color: var(--wp--preset--color--contrast);
-	padding: 0.25em 0.5em;
-	border-radius: 0.2em;
+	padding: 0.35em 0.75em;
+	border-left: 4px solid var(--wp--preset--color--accent);
+	border-radius: 0 var(--wp--custom--radius--small) var(--wp--custom--radius--small) 0;
 }
 
 /* Header, main and footer sit edge to edge; sections bring their own spacing. */
@@ -124,8 +125,80 @@ Tags: block-patterns, full-site-editing, accessibility-ready, translation-ready,
 /* Dark sections: text links follow the light text colour (buttons keep their own colours). */
 .has-primary-background-color a:not(.wp-element-button),
 .has-primary-dark-background-color a:not(.wp-element-button),
-.has-contrast-background-color a:not(.wp-element-button) {
+.has-contrast-background-color a:not(.wp-element-button),
+.has-night-sky-gradient-background a:not(.wp-element-button) {
 	color: inherit;
+}
+
+/* Header: light, with a soft shadow; sticks to the top on large screens. */
+.wp-site-blocks > header {
+	position: relative;
+	z-index: 50;
+	box-shadow: 0 1px 0 rgba(17, 23, 43, 0.06), 0 6px 20px rgba(17, 23, 43, 0.05);
+}
+
+@media (min-width: 782px) {
+	.wp-site-blocks > header {
+		position: sticky;
+		top: 0;
+	}
+
+	.admin-bar .wp-site-blocks > header {
+		top: 32px;
+	}
+}
+
+/* Block style "Eyebrow label": a small pill above a heading. */
+.is-style-eyebrow {
+	width: fit-content;
+	padding: 0.3em 0.9em;
+	border-radius: var(--wp--custom--radius--pill);
+	background: var(--wp--preset--color--accent-soft);
+	color: var(--wp--preset--color--secondary);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}
+
+.is-style-eyebrow.has-text-align-center {
+	margin-inline: auto;
+}
+
+.has-night-sky-gradient-background .is-style-eyebrow,
+.has-primary-dark-background-color .is-style-eyebrow,
+.has-contrast-background-color .is-style-eyebrow {
+	background: rgba(255, 255, 255, 0.12);
+	color: var(--wp--preset--color--base);
+}
+
+/* Block style "Card": white surface, rounded corners, soft shadow, gentle lift on hover. */
+.is-style-card {
+	background: var(--wp--preset--color--base);
+	border: 1px solid rgba(17, 23, 43, 0.07);
+	border-radius: var(--wp--custom--radius--medium);
+	box-shadow: var(--wp--preset--shadow--card);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.is-style-card:hover,
+.is-style-card:focus-within {
+	transform: translateY(-3px);
+	box-shadow: var(--wp--preset--shadow--lift);
+}
+
+/* Buttons: a small lift on hover. */
+.wp-element-button {
+	transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.wp-element-button:hover {
+	transform: translateY(-1px);
+}
+
+/* Outline buttons keep the pill shape and a solid 2px border. */
+.wp-block-button.is-style-outline > .wp-block-button__link {
+	border-width: 2px;
+	box-shadow: none;
 }
 
 /* Cards placed in columns or grids line up at the same height. */
