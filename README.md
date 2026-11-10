@@ -61,7 +61,7 @@ docs/                         Brief, decisions, hosting, deployment, screenshots
 - [Project brief](docs/project-brief.md) — site map, audiences, scope, information still needed from the client
 - [Technical decisions](docs/decisions.md) — why things are built this way
 - [Hosting comparison](docs/hosting.md) — Hostinger vs o2switch vs Namecheap, with sources
-- [Deployment guide](docs/deploiement.md) — hosting account, staging, SSH key, secrets, backups
+- [Deployment guide](docs/deploiement.md) — WordPress install, FTPS deployment, secrets, backups
 - [Contributing](CONTRIBUTING.md) — workflow, branches, commits, reviews
 
 ## Content rule
