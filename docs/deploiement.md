@@ -1,160 +1,176 @@
-# Deployment guide (Hostinger + GitHub Actions, FTPS)
+# Initial Production Deployment Report – Seed of Hope Website
 
-Step-by-step guide for the team. No server administration experience needed: everything happens in
-**hPanel** (Hostinger's control panel), in **GitHub**, and in **wp-admin**.
+- **Project:** Seed of Hope Website
+- **Repository:** FreeDev-Group/seed-of-hope-website
+- **Hosting provider:** Hostinger
+- **Deployment method:** GitHub Actions and FTPS
+- **Mentor:** Samuel Bulangalizi
+- **Deployment date:** 11 November 2026
+- **Deployment execution:** Jonathan Bitingingwa
+- **Documentation:** Josué Kamo
+## 1. Opening the Deployment Documentation
 
-> Hosting choice: see [hosting.md](hosting.md) and ADR-010 in [decisions.md](decisions.md).
+The process started by opening the project in Visual Studio Code (VS Code) and accessing the deployment documentation file:
 
-What gets deployed: only our code — `wp-content/themes/seed-of-hope`, `wp-content/plugins/seed-of-hope-core`
-and `wp-content/mu-plugins/*.php`. WordPress itself, the database, `wp-config.php` and uploaded media live on
-the server and are **never** overwritten by a deployment.
+`docs/deployment.md`
 
-```
-GitHub (main) ──merge──▶ GitHub Actions "Deploy" ──waits for Samuel's approval──▶ FTPS upload ──▶ seedofhopebukavu.org
-```
+This document served as the reference for understanding the hosting configuration, file-transfer requirements, GitHub secrets and deployment procedure.
 
-**What our plan allows** (hPanel → *Plan details*): **1 website**, **no SSH**, FTP access, daily backups,
-server in Frankfurt (Germany). Consequences:
+The existing deployment guide provided by the team was used to organize and document the operations performed during the installation.
 
-- deployments use **FTPS** (FTP encrypted with TLS) with `lftp`, see [`scripts/deploy-ftp.sh`](../scripts/deploy-ftp.sh);
-- there is **no WP-CLI on the server**: activating the theme or plugin and purging the cache are done in
-  wp-admin / hPanel;
-- there is **no separate staging site**: we test locally (`npm run setup` + `npm test`), CI tests every pull
-  request, and every deployment to production needs Samuel's approval.
+## 2. Accessing the Hostinger Account
 
-> Never write the real FTP host, username or password in this repository: it is public.
-> They only go into GitHub **secrets**.
+The next step was to access the Hostinger account using the provided username and password.
+
+After authentication, the browser redirected us to the Hostinger control panel, known as **hPanel**.
+
+This interface provides access to the hosting environment and the tools required to manage the website and its files.
+
+The Hostinger environment was used as the destination for the website deployment.
+
+## 3. Accessing the Project Through Visual Studio Code (SFTP)
+
+After accessing Hostinger, we returned to Visual Studio Code to prepare the project file transfer.
+
+Since several file-transfer protocols were available, we used the SFTP configuration file:
+
+`.vscode/sftp.json`
+
+This file was opened to inspect the connection settings used by the SFTP extension.
+
+### 3.1. Downloading the project
+
+In Visual Studio Code, we used the command:
+
+`SFTP: Download Project`
+
+This operation initiated the retrieval of the project files through the configured SFTP connection.
+
+The transfer was performed through the VS Code terminal. Once the operation had completed successfully, the transferred project folder was opened in Visual Studio Code.
+
+This provided access to the project files in the local development environment.
+
+**Security note:** Connection credentials contained in `sftp.json` must remain private. Passwords and other sensitive connection information must never be committed to the public GitHub repository.
+
+## 4. Connecting GitHub to the Hosting Environment
+
+After preparing the project files, we proceeded to configure the connection required for automated deployment.
+
+The configuration was performed in the GitHub repository:
+
+`FreeDev-Group/seed-of-hope-website`
+
+We accessed:
+
+`Repository → Settings → Secrets and variables → Actions`
+
+This section allows the management of sensitive credentials and non-sensitive configuration values used by GitHub Actions workflows.
+
+### 4.1. Understanding GitHub Secrets and Variables
+
+GitHub provides different configuration storage options:
+
+- **Repository secrets:** encrypted sensitive information available to authorized workflows within the repository.
+- **Environment secrets:** encrypted sensitive information associated with a specific deployment environment.
+- **Repository variables:** non-sensitive configuration values available at repository level.
+- **Environment variables:** non-sensitive configuration values associated with a specific environment.
+
+For this deployment, we used **Environment secrets** because the credentials were intended specifically for the production environment.
+
+### 4.2. Creating the production environment secrets
+
+We accessed the Environment secrets section and configured the four required FTP credentials under the existing `production` environment.
+
+The following secrets were added:
+
+| Secret name | Purpose |
+|---|---|
+| `FTP_HOST` | Hostinger FTP server hostname. |
+| `FTP_USER` | FTP account username. |
+| `FTP_PASSWORD` | FTP account password. |
+| `FTP_PATH` | Remote directory containing the WordPress installation. |
+
+After configuration, all four secrets appeared in the `production` environment.
+
+The Repository secrets section showed no configured secrets, and no organization-level secrets were available to this repository.
+
+The credentials were stored as encrypted GitHub secrets rather than being written into the project files.
+
+## 5. Running the First Deployment Through GitHub Actions
+
+Once the production environment secrets had been configured, we returned to the GitHub repository to execute the deployment workflow.
+
+### 5.1. Selecting the deployment workflow
+
+We accessed the **Actions** tab in the GitHub repository.
+
+We then selected the deployment workflow and chose the `production` environment, which had been configured previously under GitHub environment settings.
+
+### 5.2. Executing the workflow
+
+The deployment workflow was launched using the production configuration.
+
+GitHub Actions executed the deployment process using the configured environment secrets to establish the required connection to the hosting server.
+
+### 5.3. Deployment result
+
+The GitHub Actions execution completed successfully and displayed a green success status.
+
+This indicated that the deployment workflow had finished without reporting a failed execution.
+
+## 6. Verifying the Website Online
+
+After the successful workflow execution, we opened the website in a web browser:
+
+[https://seedofhopebukavu.org](https://seedofhopebukavu.org)
+
+The website opened successfully online following the deployment.
+
+This provided an initial confirmation that the production website was accessible after the deployment process.
+
+Further visual checks on desktop and mobile devices are documented through the screenshots at the end of this guide.
+
+## 7. Deployment Evidence and Screenshots
+
+The following screenshots will be added to provide visual evidence of the operations performed during the deployment.
+
+### 7.1. Hostinger access
+
+*Screenshot 1: Accessing the deployment.md file documents.*
+<img width="1366" height="768" alt="git" src="https://github.com/user-attachments/assets/591ec91b-233c-4325-ab8c-95ec281876c3" />
+
+### 7.2. SFTP configuration and project retrieval
+
+*Screenshot 2: Opening the `.vscode/sftp.json` configuration file.*
+<img width="1920" height="1080" alt="Screenshot (544)" src="https://github.com/user-attachments/assets/ac33b822-93e0-48e2-83e2-ac2966163144" />
+
+
+*Screenshot 3: Successful project-folder transfer and opening in VS Code.*
+<img width="1920" height="1080" alt="Screenshot (545)" src="https://github.com/user-attachments/assets/f9f8eeba-04b6-4fab-8993-2c0242385d1a" />
+
+### 7.3. GitHub environment secrets
+
+*Screenshot 4: Accessing Settings → Secrets and variables → Actions.*
+<img width="1366" height="728" alt="pt" src="https://github.com/user-attachments/assets/1c5311dd-4ca5-4d28-aeb5-bde39746eb09" />
+
+*Screenshot 5: The four configured Environment secrets under `production`.*
+<img width="1366" height="768" alt="pob" src="https://github.com/user-attachments/assets/7ce0a846-4898-45df-be36-f4d06fbd9a23" />
+
+### 7.4. GitHub Actions deployment
+
+*Screenshot 6: Selecting the deployment workflow and production environment.*
+<img width="1366" height="768" alt="KIT" src="https://github.com/user-attachments/assets/a3972b95-a89c-4fbb-a632-b0f4bab5c029" />
+
+*Screenshot 7: Successful GitHub Actions execution displaying the green status.*
+<img width="1366" height="768" alt="ACT" src="https://github.com/user-attachments/assets/10211fe9-5a70-4075-bff4-4f0c62ca3d6b" />
+
+### 7.5. Website online
+
+*Screenshot 8: Seed of Hope website successfully opened at `seedofhopebukavu.org`.*
+<img width="1920" height="1080" alt="Screenshot (537)" src="https://github.com/user-attachments/assets/106f5f2e-720f-413e-853b-54d5484b33b6" />
+
+
 
 ---
 
-## 1. Hosting account (done by Samuel)
-
-- Plan bought, domain `seedofhopebukavu.org` registered (see issues #7 and #20).
-- Enable two-factor authentication: hPanel → profile icon → **Security** → 2FA.
-- Give the team access without sharing the password: hPanel → **Account sharing / Access management** →
-  invite Jonathan and Josué with their own Hostinger accounts. Remove the access at handover.
-
-## 2. Install WordPress
-
-1. hPanel → **Websites** → *seedofhopebukavu.org* → **WordPress** (or *Auto installer*) → install WordPress.
-2. Admin email: the dedicated project email. Language: **Français**.
-3. Do **not** keep the extra plugins offered by the installer unless they are listed in ADR-011
-   (LiteSpeed Cache is acceptable if Hostinger imposes it — write it down in `docs/decisions.md`).
-4. Write the admin username and password in the team password manager (never in chat, never in Git).
-5. Until the site is validated by Seed of Hope: **Réglages → Lecture → Demander aux moteurs de recherche de
-   ne pas indexer ce site** ✔.
-
-## 3. A dedicated FTP account for deployments
-
-The main FTP account can access the whole hosting space. Create one **only for GitHub Actions**:
-
-1. hPanel → **Files** → **FTP Accounts** → *Create a new FTP account*.
-2. Directory: `public_html` (the WordPress folder). Username: e.g. `deploy`. Generate a **strong password**.
-3. Note the **FTP hostname** shown at the top of the page (e.g. `ftp.<domain>` or the domain itself — without
-   `ftp://`) and the full username Hostinger gives (it usually looks like `u123456789.deploy`).
-4. Test from your computer with **FileZilla**: protocol **FTP**, encryption
-   **"Require explicit FTP over TLS"**, the host, the username and the password. You must see `wp-config.php`,
-   `wp-content`, `wp-admin`… If the encryption is refused, ask Hostinger support to confirm FTPS on the plan —
-   do **not** fall back to plain FTP (the password would travel in clear text).
-
-> If your plan does not allow extra FTP accounts, use the main one (`FTP_PATH` = `public_html`), and change its
-> password at handover.
-
-## 4. GitHub secrets and variables (Samuel, repo admin)
-
-GitHub → repository → **Settings** → **Environments** → **`production`** (it already exists and requires
-`@Samuel11s` as reviewer). Add these **environment secrets**:
-
-| Secret | Value | Example | Added? |
-| --- | --- | --- | --- |
-| `FTP_HOST` | FTP hostname, **without** `ftp://` | `seedofhopebukavu.org` | ☐ |
-| `FTP_USER` | Username of the FTP account | `u123456789.deploy` | ☐ |
-| `FTP_PASSWORD` | Its password | — | ☐ |
-| `FTP_PATH` | Path from the FTP account's home to the folder that contains `wp-config.php` | `.` (dedicated account created on `public_html`) or `public_html` (main account) | ☐ |
-
-And these **environment variables**:
-
-| Variable | Value |
-| --- | --- |
-| `WP_URL` | `https://seedofhopebukavu.org` (no trailing slash) — used by the smoke test |
-| `FTP_VERIFY_CERT` | *Only if the log says the certificate name does not match:* `no`. The connection stays encrypted, but the server's identity is no longer checked — ask Hostinger for the right hostname first. |
-
-The person who types the password into GitHub should copy it directly from the password manager: never
-send it by WhatsApp, email or chat.
-
-> Until these secrets exist, merges on `main` show a yellow warning "Deployment skipped" instead of failing.
-
-## 5. First deployment
-
-1. Make a backup first: hPanel → **Backups** → *Generate new backup*.
-2. GitHub → **Actions** → **Deploy** → **Run workflow** → environment `production`, **dry run ✔** (default) → Run.
-   Samuel approves the deployment (GitHub sends him a notification).
-   Read the log: lftp lists the files it *would* send. Nothing is changed.
-3. Run it again with **dry run unticked**. Approve. The log ends with `Deployment finished.`
-4. In **wp-admin** (first deployment only):
-   - **Apparence → Thèmes** → activate **Seed of Hope**;
-   - **Extensions** → activate **Seed of Hope Core**;
-   - **Réglages → Général** → language **Français**, time zone **Lubumbashi** (Bukavu, UTC+2);
-   - **Réglages → Permaliens** → **Titre de la publication**.
-5. hPanel → **Cache Manager** → *Purge all*. Open the site on a phone and on a computer.
-
-### From now on
-Every merge on `main` that touches `wp-content/` starts a deployment to production that **waits for Samuel's
-approval** (GitHub → Actions → the waiting run → *Review deployments* → *Approve and deploy*).
-
-### Pages and content
-Without SSH we cannot run `scripts/setup.sh` on the server. Create the pages in wp-admin with the
-**Seed of Hope patterns** (the same ones as the local demo site), using **validated content only**, then build
-the menu in the Site Editor. It is also the best way to learn how the client will edit the site.
-
-## 6. Backups and restore
-
-Hostinger makes **daily automatic backups** (hPanel → **Backups**).
-
-### Before every deployment or big change
-hPanel → **Backups** → *Generate new backup*. It takes a few minutes.
-
-### Restore
-1. hPanel → **Backups**.
-2. Choose **Files backups** (code, media) or **Database backups** (pages, settings), and a date.
-3. Click **Restore**. For files you can restore a single folder, e.g. `public_html/wp-content/uploads`.
-4. Check the site, then tell the team in the issue tracker what was restored and why.
-
-### Our own extra copy (monthly)
-hPanel → **Backups** → download the latest **files** and **database** backups. Store them in the project's
-shared drive, never in the Git repository (they contain personal data).
-
-### Roll back a bad deployment
-The code is in Git: **revert the faulty PR** on GitHub (*Revert* button on the merged PR), merge the revert PR,
-and approve the deployment: the previous version of the theme and plugin is uploaded again.
-
-## 7. Handover to Seed of Hope
-
-1. Give Seed of Hope the **dedicated email account** (they change its password and recovery phone).
-2. They log into Hostinger with it, change the password, enable their own 2FA, and replace the payment card
-   in **Billing → Payment methods**. Turn auto-renewal on with their card.
-3. Create WordPress accounts for their editors with the **Éditeur** role (not Administrateur).
-4. If FreeDev no longer maintains the site: delete the deployment FTP account in hPanel, remove FreeDev's
-   WordPress accounts and the team's hPanel access, and delete the GitHub secrets.
-5. Hand over this document and the editor guide (#22).
-
-## Troubleshooting
-
-| Symptom in the Deploy log | Fix |
-| --- | --- |
-| `Login incorrect` / `530` | Wrong `FTP_USER` or `FTP_PASSWORD` (copy the full username from hPanel, e.g. `u123456789.deploy`). |
-| `Access failed: 550 … wp-config.php` | `FTP_PATH` does not point to the WordPress folder: try `.` or `public_html`. |
-| `Certificate verification: …` / name mismatch | Use the FTP hostname shown in hPanel for `FTP_HOST`; as a last resort set the variable `FTP_VERIFY_CERT` to `no`. |
-| `Fatal error: max-retries exceeded` / timeout | Hostinger may be blocking the connection: retry later, then contact support. |
-| `Deployment skipped, missing secrets` | Add the four `FTP_*` secrets to the **production** environment. |
-| Site shows the old version | hPanel → **Cache Manager** → *Purge all*, then reload with Ctrl+F5. |
-
-## Run a deployment from your computer (optional)
-
-`scripts/deploy-ftp.sh` also works locally (Git Bash, Linux or macOS, with `lftp` installed):
-
-```bash
-FTP_HOST=… FTP_USER=… FTP_PASSWORD=… FTP_PATH=. DRY_RUN=1 bash scripts/deploy-ftp.sh
-```
-
-Prefer GitHub Actions: it deploys exactly what is on `main`, with an approval and a log everyone can read.
+**Documentation status:** The initial deployment process has been documented based on the operations performed. Additional configuration details, WordPress theme and plugin activation, backup verification and handover procedures will be documented as they are confirmed.
